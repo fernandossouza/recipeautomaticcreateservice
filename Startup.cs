@@ -8,8 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using recipeautomaticcreateservice.Services;
+using recipeautomaticcreateservice.Services.Interfaces;
 
-namespace recipeinterceptorservice
+namespace recipeautomaticcreateservice
 {
     public class Startup
     {
@@ -24,6 +26,8 @@ namespace recipeinterceptorservice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IOpTiraService,OpTiraService>();
+            services.AddTransient<IOtherApi,OtherApi>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
